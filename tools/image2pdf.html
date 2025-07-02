@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Imagen a PDF</title>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+  <h1>Convertir imagen a PDF</h1>
+  <input type="file" id="image-file" accept="image/*">
+  <button onclick="imageToPDF()">Convertir</button>
+
+  <script>
+    async function imageToPDF() {
+      const file = document.getElementById("image-file").files[0];
+      if (!file) return alert("Selecciona una imagen.");
+
+      const imgBytes = await file.arrayBuffer();
+      const pdfDoc = await PDFLib.PDFDocument.create();
+
+      let imgEmbed;
+      if (file.type === "image/png") {
+        imgEmbed = await pdfDoc.embedPng(imgBytes);
+      } else {
+        imgEmbed = await pdfDoc.embedJpg(imgBytes);
+      }
+
+      const page = pdfDoc.addPage([imgEmbed.width, imgEmbed.height]);
+      page.drawImage(imgEmbed, { x: 0, y: 0 });
+
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "imagen.pdf";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
