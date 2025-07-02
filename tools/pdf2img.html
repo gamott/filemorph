@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>PDF a Imagen</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <style>canvas { margin: 10px; border: 1px solid #ccc; }</style>
+</head>
+<body>
+  <h1>Ver páginas de PDF como imágenes</h1>
+  <input type="file" id="pdf-file" accept="application/pdf">
+  <div id="viewer"></div>
+
+  <script>
+    document.getElementById('pdf-file').addEventListener('change', async function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      const viewer = document.getElementById('viewer');
+      viewer.innerHTML = '';
+
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        await page.render({ canvasContext: context, viewport }).promise;
+        viewer.appendChild(canvas);
+      }
+    });
+  </script>
+</body>
+</html>
