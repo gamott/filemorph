@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF a Texto</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</head>
+<body>
+  <h1>Extraer texto de PDF</h1>
+  <input type="file" id="pdf-file" accept="application/pdf">
+  <pre id="output"></pre>
+
+  <script>
+    document.getElementById('pdf-file').addEventListener('change', async function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      let fullText = '';
+
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const content = await page.getTextContent();
+        fullText += content.items.map(item => item.str).join(' ') + '\n\n';
+      }
+
+      document.getElementById('output').textContent = fullText;
+    });
+  </script>
+</body>
+</html>
