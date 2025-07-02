@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Unir PDFs</title>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+  <h1>Unir archivos PDF</h1>
+  <input type="file" id="file-input" multiple accept="application/pdf">
+  <button onclick="mergePDFs()">Unir y descargar</button>
+
+  <script>
+    async function mergePDFs() {
+      const input = document.getElementById('file-input');
+      const files = input.files;
+      if (!files.length) {
+        alert("Selecciona al menos un archivo PDF.");
+        return;
+      }
+
+      const mergedPdf = await PDFLib.PDFDocument.create();
+      for (let file of files) {
+        const bytes = await file.arrayBuffer();
+        const pdf = await PDFLib.PDFDocument.load(bytes);
+        const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+        copiedPages.forEach(page => mergedPdf.addPage(page));
+      }
+
+      const mergedBytes = await mergedPdf.save();
+      const blob = new Blob([mergedBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'archivos-unidos.pdf';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
