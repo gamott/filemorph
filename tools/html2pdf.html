@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>HTML a PDF</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <h1>Convertir HTML a PDF</h1>
+  <textarea id="html-content" rows="10" cols="50" placeholder="Escribe o pega HTML aquí"></textarea><br>
+  <button onclick="convertToPDF()">Convertir a PDF</button>
+
+  <script>
+    function convertToPDF() {
+      const content = document.getElementById("html-content").value;
+      const element = document.createElement("div");
+      element.innerHTML = content;
+
+      html2pdf().from(element).save("html-a-pdf.pdf");
+    }
+  </script>
+</body>
+</html>
