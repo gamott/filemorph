@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dividir PDF</title>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+  <h1>Dividir PDF</h1>
+  <input type="file" id="pdf-file" accept="application/pdf">
+  <input type="number" id="start" placeholder="Página inicio" min="1">
+  <input type="number" id="end" placeholder="Página final" min="1">
+  <button onclick="splitPDF()">Dividir</button>
+
+  <script>
+    async function splitPDF() {
+      const fileInput = document.getElementById('pdf-file');
+      const start = parseInt(document.getElementById('start').value) - 1;
+      const end = parseInt(document.getElementById('end').value) - 1;
+      const file = fileInput.files[0];
+      if (!file || isNaN(start) || isNaN(end) || start > end) return alert("Datos inválidos");
+
+      const existingPdfBytes = await file.arrayBuffer();
+      const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+      const newPdf = await PDFLib.PDFDocument.create();
+
+      for (let i = start; i <= end; i++) {
+        const [page] = await newPdf.copyPages(pdfDoc, [i]);
+        newPdf.addPage(page);
+      }
+
+      const pdfBytes = await newPdf.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'pdf-dividido.pdf';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
