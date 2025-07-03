@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FileMorph - Strumenti di Conversione</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>FileMorph</h1>
+    <nav>
+      <a href="#free">Strumenti Gratuiti</a>
+      <a href="#premium">Premium</a>
+      <a href="#pricing">Prezzi</a>
+    </nav>
+    <div id="lang-select">
+      <a href="index.es.html"><img src="assets/flags/es.png" alt="Spagnolo"></a>
+      <a href="index.en.html"><img src="assets/flags/en.png" alt="Inglese"></a>
+      <a href="index.fr.html"><img src="assets/flags/fr.png" alt="Francese"></a>
+      <a href="index.de.html"><img src="assets/flags/de.png" alt="Tedesco"></a>
+    </div>
+  </header>
+
+  <main>
+    <section id="free">
+      <h2>🛠️ Strumenti Gratuiti</h2>
+      <a class="tool-link" href="tools/docx2pdf.html">📄 Converti DOCX in PDF</a>
+      <a class="tool-link" href="tools/mergepdf.html">📑 Unisci PDF</a>
+    </section>
+
+    <section id="premium">
+      <h2>🔒 Strumenti Premium</h2>
+      <ul>
+        <li>📂 PDF in Word</li>
+        <li>🖼️ Immagine in PDF</li>
+        <li>📊 Excel in PDF</li>
+        <li>📝 OCR per PDF</li>
+      </ul>
+    </section>
+
+    <section id="pricing">
+      <h2>💳 Prezzi</h2>
+      <div class="plans">
+        <p><strong>Modalità di pagamento:</strong> Visa, Mastercard, Bizum</p>
+        <ul>
+          <li><strong>Mensile:</strong> 15€</li>
+          <li><strong>Annuale:</strong> 30€</li>
+        </ul>
+        <p>Accesso illimitato a tutti gli strumenti premium!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> FileMorph. Sviluppato da gamott.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
