@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FileMorph - File Conversion Tools</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>FileMorph</h1>
+    <nav>
+      <a href="#free">Free Tools</a>
+      <a href="#premium">Premium</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div id="lang-select">
+      <a href="index.es.html"><img src="assets/flags/es.png" alt="Español"></a>
+      <a href="index.fr.html"><img src="assets/flags/fr.png" alt="Français"></a>
+      <a href="index.it.html"><img src="assets/flags/it.png" alt="Italiano"></a>
+      <a href="index.de.html"><img src="assets/flags/de.png" alt="Deutsch"></a>
+    </div>
+  </header>
+
+  <main>
+    <section id="free">
+      <h2>🛠️ Free Tools</h2>
+      <a class="tool-link" href="tools/docx2pdf.html">📄 Convert DOCX to PDF</a>
+      <a class="tool-link" href="tools/mergepdf.html">📑 Merge PDFs</a>
+    </section>
+
+    <section id="premium">
+      <h2>🔒 Premium Tools</h2>
+      <ul>
+        <li>📂 PDF to Word</li>
+        <li>🖼️ Image to PDF</li>
+        <li>📊 Excel to PDF</li>
+        <li>📝 PDF OCR</li>
+      </ul>
+    </section>
+
+    <section id="pricing">
+      <h2>💳 Pricing Plans</h2>
+      <div class="plans">
+        <p><strong>Payment options:</strong> Visa, Mastercard, Bizum</p>
+        <ul>
+          <li><strong>Monthly:</strong> €15</li>
+          <li><strong>Yearly:</strong> €30</li>
+        </ul>
+        <p>Get unlimited access to all premium tools!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> FileMorph. Developed by gamott.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
