@@ -1,79 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FileMorph - Herramientas de conversión de archivos</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 2em;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 2em;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    h2 {
-      margin-top: 2em;
-      color: #34495e;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 0.5em 0;
-    }
-    a {
-      text-decoration: none;
-      color: #2980b9;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      margin-top: 4em;
-      font-size: 0.9em;
-      color: #777;
-    }
-  </style>
+  <meta http-equiv="refresh" content="0; url=index.es.html" />
+  <script>
+    const lang = navigator.language.slice(0, 2);
+    const supported = ['es', 'en', 'fr', 'it', 'de'];
+    const redirect = supported.includes(lang) ? lang : 'en';
+    window.location.href = `index.${redirect}.html`;
+  </script>
 </head>
 <body>
-
-  <header>
-    <h1>Bienvenido a FileMorph</h1>
-    <p>Convierte archivos fácilmente, gratis o con funciones premium.</p>
-  </header>
-
-  <section>
-    <h2>🛠️ Herramientas gratuitas</h2>
-    <ul>
-      <li><a href="tools/docx2pdf.html">📄 Convertir DOCX a PDF</a></li>
-      <!-- Puedes añadir más herramientas aquí -->
-    </ul>
-  </section>
-
-  <section>
-    <h2>🔒 Herramientas premium (próximamente)</h2>
-    <ul>
-      <li>📂 PDF a Word</li>
-      <li>🖼️ Imagen a PDF</li>
-      <li>📊 Excel a PDF</li>
-      <li>📝 OCR en PDF</li>
-    </ul>
-  </section>
-
-  <footer>
-    &copy; 2025 FileMorph. Desarrollado por gamott.
-  </footer>
-
+  Redirigiendo a tu idioma...
 </body>
 </html>
 
