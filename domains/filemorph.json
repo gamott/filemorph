@@ -1,6 +1,7 @@
 {
   "owner": {
-    "email": "ianagamot@gmail.com"
+    "email": "ianagamot@gmail.com",
+    "name": "Ian Gamott"
   },
   "record": {
     "CNAME": "gamott.github.io"
