@@ -4,35 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FileMorph - Strumenti di Conversione</title>
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>FileMorph</h1>
-    <nav>
-      <a href="#free">Gratis</a>
-      <a href="#premium">Premium</a>
-      <a href="#pricing">Prezzi</a>
-      <a href="#plans">Piani</a>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-slate-800 text-white px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+    <h1 class="text-2xl font-bold">FileMorph</h1>
+    <nav class="mt-2 md:mt-0 flex gap-4">
+      <a href="#free" class="hover:underline">Gratuito</a>
+      <a href="#premium" class="hover:underline">Premium</a>
+      <a href="#pricing" class="hover:underline">Prezzi</a>
+      <a href="#plans" class="hover:underline">Piani</a>
     </nav>
-    <div id="lang-select">
-      <a href="index.es.html"><img src="assets/flags/es.png" alt="Español"></a>
-      <a href="index.en.html"><img src="assets/flags/en.png" alt="English"></a>
-      <a href="index.fr.html"><img src="assets/flags/fr.png" alt="Français"></a>
-      <a href="index.de.html"><img src="assets/flags/de.png" alt="Deutsch"></a>
+    <div id="lang-select" class="flex gap-2 mt-2 md:mt-0">
+      <a href="index.en.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/en.png" alt="English" /></a>
+      <a href="index.fr.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/fr.png" alt="Français" /></a>
+      <a href="index.it.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/it.png" alt="Italiano" /></a>
+      <a href="index.de.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/de.png" alt="Deutsch" /></a>
     </div>
   </header>
 
-  <main>
-    <section id="free">
-      <h2>🛠️ Strumenti Gratuiti</h2>
-      <a class="tool-link" href="tools/docx2pdf.html">📄 Converti DOCX in PDF</a>
-      <a class="tool-link" href="tools/mergepdf.html">📁 Unisci PDF</a>
+  <main class="max-w-4xl mx-auto p-6">
+    <section id="free" class="bg-white p-6 rounded-xl shadow-md my-6">
+      <h2 class="text-xl font-semibold mb-4">🛠️ Strumenti Gratuiti</h2>
+      <div class="flex flex-col gap-2">
+        <a class="text-blue-600 font-medium hover:underline" href="tools/docx2pdf.html">📄 Converti DOCX in PDF</a>
+        <a class="text-blue-600 font-medium hover:underline" href="tools/mergepdf.html">📁 Unisci PDF</a>
+      </div>
     </section>
 
-    <section id="premium">
-      <h2>🔒 Strumenti Premium</h2>
-      <ul>
+    <section id="premium" class="bg-white p-6 rounded-xl shadow-md my-6">
+      <h2 class="text-xl font-semibold mb-4">🔒 Strumenti Premium</h2>
+      <ul class="list-disc list-inside space-y-1">
         <li>📂 Converti PDF in Word</li>
         <li>🖼️ Converti Immagine in PDF</li>
         <li>📊 Converti Excel in PDF</li>
@@ -40,43 +42,41 @@
       </ul>
     </section>
 
-    <section id="pricing">
-      <h2>💳 Prezzi</h2>
-      <div class="plans">
-        <p><strong>Metodi di pagamento:</strong> Visa, Mastercard, Bizum, PayPal</p>
-        <ul>
-          <li><strong>Mensile:</strong> 15 €</li>
-          <li><strong>Annuale:</strong> 30 €</li>
-        </ul>
-        <p>Accesso illimitato a tutti gli strumenti premium!</p>
-      </div>
+    <section id="pricing" class="bg-white p-6 rounded-xl shadow-md my-6">
+      <h2 class="text-xl font-semibold mb-4">💳 Prezzi</h2>
+      <p><strong>Metodi di pagamento:</strong> Visa, Mastercard, Bizum, PayPal</p>
+      <ul class="list-disc list-inside space-y-1 mt-2">
+        <li><strong>Mensile:</strong> 15 €</li>
+        <li><strong>Annuale:</strong> 30 €</li>
+      </ul>
+      <p class="mt-2">Accedi a tutti gli strumenti premium senza limiti!</p>
     </section>
 
-    <section id="plans">
-      <h2>📊 Confronto Piani</h2>
-      <div class="plans">
-        <table style="width:100%; border-collapse: collapse;">
-          <thead>
-            <tr style="background-color: #ecf0f1;">
-              <th style="padding: 10px; border: 1px solid #ccc;">Funzionalità</th>
-              <th style="padding: 10px; border: 1px solid #ccc;">Gratis</th>
-              <th style="padding: 10px; border: 1px solid #ccc;">Premium</th>
+    <section id="plans" class="bg-white p-6 rounded-xl shadow-md my-6">
+      <h2 class="text-xl font-semibold mb-4">📊 Confronto dei Piani</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full border border-gray-300">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="p-2 border border-gray-300">Funzionalità</th>
+              <th class="p-2 border border-gray-300">Gratuito</th>
+              <th class="p-2 border border-gray-300">Premium</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Converti DOCX in PDF</td><td style="text-align:center;">✅</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>Unisci PDF</td><td style="text-align:center;">✅</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>Converti PDF in Word</td><td style="text-align:center;">❌</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>Converti Immagine in PDF</td><td style="text-align:center;">❌</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>OCR su PDF</td><td style="text-align:center;">❌</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>Supporto prioritario</td><td style="text-align:center;">❌</td><td style="text-align:center;">✅</td></tr>
+            <tr><td class="p-2 border">Converti DOCX in PDF</td><td class="text-center border">✅</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">Unisci PDF</td><td class="text-center border">✅</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">Converti PDF in Word</td><td class="text-center border">❌</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">Converti Immagine in PDF</td><td class="text-center border">❌</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">OCR su PDF</td><td class="text-center border">❌</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">Supporto prioritario</td><td class="text-center border">❌</td><td class="text-center border">✅</td></tr>
           </tbody>
         </table>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="text-center text-sm text-gray-500 p-4">
     &copy; <span id="year"></span> FileMorph. Sviluppato da gamott.
   </footer>
 
