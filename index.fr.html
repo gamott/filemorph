@@ -13,11 +13,11 @@
       <a href="#free" class="hover:underline">Gratuit</a>
       <a href="#premium" class="hover:underline">Premium</a>
       <a href="#pricing" class="hover:underline">Tarifs</a>
-      <a href="#plans" class="hover:underline">Forfaits</a>
+      <a href="#plans" class="hover:underline">Abonnements</a>
     </nav>
     <div id="lang-select" class="flex gap-2 mt-2 md:mt-0">
+      <a href="index.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/es.png" alt="Español" /></a>
       <a href="index.en.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/en.png" alt="English" /></a>
-      <a href="index.fr.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/fr.png" alt="Français" /></a>
       <a href="index.it.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/it.png" alt="Italiano" /></a>
       <a href="index.de.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/de.png" alt="Deutsch" /></a>
     </div>
@@ -50,10 +50,24 @@
         <li><strong>Annuel :</strong> 30 €</li>
       </ul>
       <p class="mt-2">Accédez à tous les outils premium sans limite !</p>
+
+      <div class="mt-6">
+        <h3 class="text-lg font-semibold mb-2">💸 S'abonner avec PayPal</h3>
+        <div class="flex flex-col md:flex-row gap-6">
+          <div>
+            <p class="mb-2 text-sm">Plan mensuel (15 €)</p>
+            <div id="paypal-monthly"></div>
+          </div>
+          <div>
+            <p class="mb-2 text-sm">Plan annuel (30 €)</p>
+            <div id="paypal-annual"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="plans" class="bg-white p-6 rounded-xl shadow-md my-6">
-      <h2 class="text-xl font-semibold mb-4">📊 Comparatif des Forfaits</h2>
+      <h2 class="text-xl font-semibold mb-4">📊 Comparatif des Abonnements</h2>
       <div class="overflow-x-auto">
         <table class="min-w-full border border-gray-300">
           <thead class="bg-gray-200">
@@ -82,6 +96,56 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AQoiIPTCpxua14JoLawpcsAp4-254hvW7hQGyIYW5-0uW4sMFDvbWP8xQCjVp_ya2iomtsDMxmGuzxUk&currency=EUR"></script>
+
+  <script>
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color: 'gold',
+        shape: 'pill',
+        label: 'pay'
+      },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: '15.00' },
+            description: 'Abonnement mensuel à FileMorph'
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Merci, ' + details.payer.name.given_name + '! Votre abonnement mensuel est actif.');
+          localStorage.setItem("filemorphPro", "true");
+        });
+      }
+    }).render('#paypal-monthly');
+
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color: 'blue',
+        shape: 'pill',
+        label: 'pay'
+      },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: '30.00' },
+            description: 'Abonnement annuel à FileMorph'
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Merci, ' + details.payer.name.given_name + '! Votre abonnement annuel est actif.');
+          localStorage.setItem("filemorphPro", "true");
+        });
+      }
+    }).render('#paypal-annual');
   </script>
 </body>
 </html>
