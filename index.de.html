@@ -4,84 +4,148 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FileMorph - Konvertierungswerkzeuge</title>
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>FileMorph</h1>
-    <nav>
-      <a href="#free">Kostenlos</a>
-      <a href="#premium">Premium</a>
-      <a href="#pricing">Preise</a>
-      <a href="#plans">Tarifvergleich</a>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-slate-800 text-white px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+    <h1 class="text-2xl font-bold">FileMorph</h1>
+    <nav class="mt-2 md:mt-0 flex gap-4">
+      <a href="#free" class="hover:underline">Kostenlos</a>
+      <a href="#premium" class="hover:underline">Premium</a>
+      <a href="#pricing" class="hover:underline">Preise</a>
+      <a href="#plans" class="hover:underline">Pläne</a>
     </nav>
-    <div id="lang-select">
-      <a href="index.es.html"><img src="assets/flags/es.png" alt="Español"></a>
-      <a href="index.en.html"><img src="assets/flags/en.png" alt="English"></a>
-      <a href="index.fr.html"><img src="assets/flags/fr.png" alt="Français"></a>
-      <a href="index.it.html"><img src="assets/flags/it.png" alt="Italiano"></a>
+    <div id="lang-select" class="flex gap-2 mt-2 md:mt-0">
+      <a href="index.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/es.png" alt="Español" /></a>
+      <a href="index.en.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/en.png" alt="English" /></a>
+      <a href="index.fr.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/fr.png" alt="Français" /></a>
+      <a href="index.it.html"><img class="w-6 h-6 rounded-full border" src="assets/flags/it.png" alt="Italiano" /></a>
     </div>
   </header>
 
-  <main>
-    <section id="free">
-      <h2>🛠️ Kostenlose Werkzeuge</h2>
-      <a class="tool-link" href="tools/docx2pdf.html">📄 DOCX in PDF konvertieren</a>
-      <a class="tool-link" href="tools/mergepdf.html">📁 PDFs zusammenfügen</a>
-    </section>
-
-    <section id="premium">
-      <h2>🔒 Premium-Werkzeuge</h2>
-      <ul>
-        <li>📂 PDF in Word konvertieren</li>
-        <li>🖼️ Bild in PDF konvertieren</li>
-        <li>📊 Excel in PDF konvertieren</li>
-        <li>📝 OCR auf PDF</li>
-      </ul>
-    </section>
-
-    <section id="pricing">
-      <h2>💳 Preise</h2>
-      <div class="plans">
-        <p><strong>Zahlungsmethoden:</strong> Visa, Mastercard, Bizum, PayPal</p>
-        <ul>
-          <li><strong>Monatlich:</strong> 15 €</li>
-          <li><strong>Jährlich:</strong> 30 €</li>
-        </ul>
-        <p>Unbegrenzter Zugriff auf alle Premium-Werkzeuge!</p>
+  <main class="max-w-4xl mx-auto p-6">
+    <section id="free" class="bg-white p-6 rounded-xl shadow-md my-6">
+      <h2 class="text-xl font-semibold mb-4">🛠️ Kostenlose Werkzeuge</h2>
+      <div class="flex flex-col gap-2">
+        <a class="text-blue-600 font-medium hover:underline" href="tools/docx2pdf.html">📄 DOCX in PDF konvertieren</a>
+        <a class="text-blue-600 font-medium hover:underline" href="tools/mergepdf.html">📁 PDFs zusammenfügen</a>
       </div>
     </section>
 
-    <section id="plans">
-      <h2>📊 Tarifvergleich</h2>
-      <div class="plans">
-        <table style="width:100%; border-collapse: collapse;">
-          <thead>
-            <tr style="background-color: #ecf0f1;">
-              <th style="padding: 10px; border: 1px solid #ccc;">Funktion</th>
-              <th style="padding: 10px; border: 1px solid #ccc;">Kostenlos</th>
-              <th style="padding: 10px; border: 1px solid #ccc;">Premium</th>
+    <section id="premium" class="bg-white p-6 rounded-xl shadow-md my-6">
+      <h2 class="text-xl font-semibold mb-4">🔒 Premium-Werkzeuge</h2>
+      <ul class="list-disc list-inside space-y-1">
+        <li>📂 PDF in Word konvertieren</li>
+        <li>🖼️ Bild in PDF konvertieren</li>
+        <li>📊 Excel in PDF konvertieren</li>
+        <li>📝 OCR für PDF</li>
+      </ul>
+    </section>
+
+    <section id="pricing" class="bg-white p-6 rounded-xl shadow-md my-6">
+      <h2 class="text-xl font-semibold mb-4">💳 Preise</h2>
+      <p><strong>Zahlungsmethoden:</strong> Visa, Mastercard, Bizum, PayPal</p>
+      <ul class="list-disc list-inside space-y-1 mt-2">
+        <li><strong>Monatlich:</strong> 15 €</li>
+        <li><strong>Jährlich:</strong> 30 €</li>
+      </ul>
+      <p class="mt-2">Zugriff auf alle Premium-Werkzeuge ohne Einschränkungen!</p>
+
+      <div class="mt-6">
+        <h3 class="text-lg font-semibold mb-2">💸 Mit PayPal abonnieren</h3>
+        <div class="flex flex-col md:flex-row gap-6">
+          <div>
+            <p class="mb-2 text-sm">Monatlicher Plan (15 €)</p>
+            <div id="paypal-monthly"></div>
+          </div>
+          <div>
+            <p class="mb-2 text-sm">Jährlicher Plan (30 €)</p>
+            <div id="paypal-annual"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" class="bg-white p-6 rounded-xl shadow-md my-6">
+      <h2 class="text-xl font-semibold mb-4">📊 Planvergleich</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full border border-gray-300">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="p-2 border border-gray-300">Funktion</th>
+              <th class="p-2 border border-gray-300">Kostenlos</th>
+              <th class="p-2 border border-gray-300">Premium</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>DOCX in PDF konvertieren</td><td style="text-align:center;">✅</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>PDFs zusammenfügen</td><td style="text-align:center;">✅</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>PDF in Word konvertieren</td><td style="text-align:center;">❌</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>Bild in PDF konvertieren</td><td style="text-align:center;">❌</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>OCR auf PDF</td><td style="text-align:center;">❌</td><td style="text-align:center;">✅</td></tr>
-            <tr><td>Priorisierter Support</td><td style="text-align:center;">❌</td><td style="text-align:center;">✅</td></tr>
+            <tr><td class="p-2 border">DOCX in PDF konvertieren</td><td class="text-center border">✅</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">PDFs zusammenfügen</td><td class="text-center border">✅</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">PDF in Word konvertieren</td><td class="text-center border">❌</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">Bild in PDF konvertieren</td><td class="text-center border">❌</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">OCR für PDF</td><td class="text-center border">❌</td><td class="text-center border">✅</td></tr>
+            <tr><td class="p-2 border">Priorisierter Support</td><td class="text-center border">❌</td><td class="text-center border">✅</td></tr>
           </tbody>
         </table>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="text-center text-sm text-gray-500 p-4">
     &copy; <span id="year"></span> FileMorph. Entwickelt von gamott.
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AQoiIPTCpxua14JoLawpcsAp4-254hvW7hQGyIYW5-0uW4sMFDvbWP8xQCjVp_ya2iomtsDMxmGuzxUk&currency=EUR"></script>
+
+  <script>
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color: 'gold',
+        shape: 'pill',
+        label: 'pay'
+      },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: '15.00' },
+            description: 'Monatliches Abonnement bei FileMorph'
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Danke, ' + details.payer.name.given_name + '! Dein monatliches Abo ist jetzt aktiv.');
+          localStorage.setItem("filemorphPro", "true");
+        });
+      }
+    }).render('#paypal-monthly');
+
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color: 'blue',
+        shape: 'pill',
+        label: 'pay'
+      },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: '30.00' },
+            description: 'Jährliches Abonnement bei FileMorph'
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Danke, ' + details.payer.name.given_name + '! Dein Jahresabo ist jetzt aktiv.');
+          localStorage.setItem("filemorphPro", "true");
+        });
+      }
+    }).render('#paypal-annual');
   </script>
 </body>
 </html>
